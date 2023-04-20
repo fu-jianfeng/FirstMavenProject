@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <!--坐标 使用下面三个向量在仓库中唯一定位一个Maven工程-->
+    <!-- 该标签与父工程中的标签重复 可去除 <groupId>com.atguigu.maven</groupId> -->
+    <artifactId>FirstMavenProject</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+	<name>FirstMavenProject</name>
+    <!--  子过程中声明父工程 -->
+    <parent>
+        <groupId>com.atguigu.maven</groupId>
+        <artifactId>Parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <!-- 以当前文件为基准的父工程pom.xml文件的相对路径-->
+        <relativePath>../Parent/pom.xml</relativePath>
+    </parent>
+
+
+    <properties>
+        <atguigu.spring.version>5.1.9.RELEASE</atguigu.spring.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+	
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${atguigu.spring.version}</version>
+            <scope>compile</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-jcl</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${atguigu.spring.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${atguigu.spring.version}</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+</project>
